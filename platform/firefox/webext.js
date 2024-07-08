@@ -19,6 +19,6 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-'use strict';
+
 
 export default browser;
