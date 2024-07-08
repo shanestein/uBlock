@@ -3791,6 +3791,7 @@ function setCookie(
         'necessary', 'required',
         'approved', 'disapproved',
         'hide', 'hidden',
+        'essential', 'nonessential',
     ];
     const normalized = value.toLowerCase();
     const match = /^("?)(.+)\1$/.exec(normalized);
@@ -4246,6 +4247,9 @@ function trustedSetCookie(
     }
     if ( value.includes('$currentDate$') ) {
         value = value.replaceAll('$currentDate$', time.toUTCString());
+    }
+    if ( value.includes('$currentISODate$') ) {
+        value = value.replaceAll('$currentISODate$', time.toISOString());
     }
 
     let expires = '';
